@@ -8,7 +8,9 @@ class Person
   def get_married(person)
     self.partner = person
     if person.class != person
-      raise PartnerError => error
+      begin
+        raise PartnerError
+      rescue PartnerError => error
         puts error.message
       end
     else
